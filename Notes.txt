@@ -1,0 +1,65 @@
+Ethers helps us to establish a connection between your computer and the blockchain
+
+What is a provider: 
+- Provider is a class which provides an abstraction for a connection to the ethereum network. It provides read only access to the Blockchain and its status.
+- In simple words, whenever you want to read from the blockchain we use a provider
+
+What is a Signer?
+- A signer is a class which in some way directly or indirectly has access to a private key which can sign messages and transactions to authorize the network to charge your account ether to perform operations
+- In simple words, whenever you want to write on the blockchain we use a signer
+
+What is a Contract?
+- A contract is an abstraction which represents a connection to a specific contract on the ethereum network, so that applications can use it like a normal javascript object.
+
+### Tutorial Starts ###
+
+** Installation **
+npm install --save ethers@5.0.0
+
+** Read Operations - Read from blockchain ***
+1. Importing ethers 
+- const {ethers} = require("ethers");
+
+2. Setting up a node (You can use Infura or Alchemy)
+
+3. Read Blockchain -> Verify on Etherscan
+
+*** Interacting with smart contract ***
+Two Operations 
+- Read -> Providers like Infura and Alchemy
+- Write -> Signers like metamask 
+
+1. Interacting with a contract
+
+***** Successfully did it with hardhat *****
+
+READ OPERATIONS
+
+1. import ethers 
+- const {ethers} = require("ethers");
+
+2. Assign the provider - Remember to use testnet
+const provider = new ethers.providers.JsonRpcProvider("https://sepolia.infura.io/v3/9ccad306349345c18e48c2d41c1b5f1d");
+
+3. Setup Wallet Address (Contract Address) & Wallet ABI (contract ABI)
+
+4. Connect to the contract - now you can access the functions and variables in the contract
+- const contractInteraction = async() => {
+    const walletContracts = new ethers.contract(contractAddress, contractABI, provider);
+}
+
+
+WRITE OPERATIONS -> You need signer 
+- To write you will need a web interface - use react
+- Import Ethers and useEffect Hook
+import {useEffect} from 'react'
+const {ethers} = require("ethers");
+
+- Copy contract Address and Contract ABI
+
+Use useEffect hook and create a write contract function
+
+setting up with Metamask
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+In this file we did not mention infura provider because metamask already has it 
+0xe3f1189bFe54a0d184Ab726E88688eC2678a7286
